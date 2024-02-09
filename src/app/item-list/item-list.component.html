@@ -1,0 +1,25 @@
+<div *ngFor="let item of items" (click)="onViewDetail(item)">
+  <mat-card class="item-card">
+    {{ item.name }}
+  </mat-card>
+</div>
+
+<div *ngIf="selectedItem">
+  <mat-card class="item-card detail">
+    <div class="header">
+      <button
+        mat-icon-button
+        color="primary"
+        (click)="closeDetail()"
+        class="close-button"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="image-container">
+      <img src="{{ selectedItem.image }}" alt="{{ selectedItem.name }}" />
+    </div>
+    <h2>{{ selectedItem.name }}</h2>
+    <p>{{ selectedItem.description }}</p>
+  </mat-card>
+</div>
